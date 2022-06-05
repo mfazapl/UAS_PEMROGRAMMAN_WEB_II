@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-require_once("koneksi.php");
+require_once("Koneksi.php");
 ?>
 
 <html>
