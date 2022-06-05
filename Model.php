@@ -95,3 +95,20 @@
         $stmt = koneksi()->prepare("delete from cake where id_order=" . $id_order);
         $result = $stmt->execute();
     }
+
+function GetAllDataMember($pdo) {
+        $con ="SELECT * FROM member";
+        $stmt = $pdo->prepare($con);
+        $stmt->execute();
+        $members = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $pdo = null;
+        return $members;
+    }
+
+    function AddMember($pdo_con, $email, $nama, $pass) {
+        $sql = "INSERT INTO member (email, nama, pass) VALUES (?,?,?)";
+        $stmt= $pdo_con->prepare($sql);
+        $stmt->execute([$email , $nama, $pass ]);
+        header('Location: member.php');
+        exit();
+    }
