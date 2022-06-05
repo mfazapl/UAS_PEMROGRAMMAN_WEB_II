@@ -1,11 +1,11 @@
 <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Custom Order</h1>
+        <h1 class="fw-light">Add a Cake</h1>
         <p class="lead text-muted">How to make a custom order bla bla bla</p>
         <p>
-          <a href="#" class="btn btn-primary my-2">Order</a>
-          <a href="#" class="btn btn-secondary my-2">Order From WhatsApp</a>
+          <a href="FormCake.php" class="btn btn-primary my-2">Add a cake</a>
+          <a href="FormCakeOrder.php" class="btn btn-secondary my-2">Order a Cake</a>
         </p>
       </div>
     </div>

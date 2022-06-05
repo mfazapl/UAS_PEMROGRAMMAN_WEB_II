@@ -86,7 +86,7 @@
                 class="me-2" 
                 viewBox="0 0 24 24">
                 <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                <strong>mycakeu</strong>
+                <strong>myBakery</strong>
             </a>
             <button class="navbar-toggler" 
             type="button" 
@@ -102,8 +102,8 @@
                 <li>
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
-                <li>
-                    <a class="nav-link" href="cake.php">Cake</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="CakePage.php">Cake</a>
                 </li>
                 <li>
                     <a class="nav-link" href="#">Tab 2</a>
