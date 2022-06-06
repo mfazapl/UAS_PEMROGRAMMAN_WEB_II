@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
         <div class="row">
             <div class="form-content">
                 <div class="form-items">
-                    <h3>Add a Cake</h3>
+                    <h3>Add a Bread</h3>
                     <p>Fill in the data below.</p>
                     <form action="" method="post" >
                             
