@@ -179,7 +179,7 @@
     }
 
 function ShowBread() {
-        $stmt = koneksi()->prepare("SELECT * FROM roti");
+        $stmt = koneksi()->prepare("SELECT * FROM _roti");
         $stmt->execute();
         $result = $stmt->fetchAll();
 
@@ -200,7 +200,7 @@ function ShowBread() {
     }
 
     function AddBread($nama, $jenis, $harga) {
-        $sql = "INSERT INTO `roti` ( `nama`, `jenis`, `harga`) VALUES (:nama,:jenis,:harga)";
+        $sql = "INSERT INTO `_roti` ( `nama`, `jenis`, `harga`) VALUES (:nama,:jenis,:harga)";
         $stmt = koneksi()->prepare($sql);
         $result = $stmt->execute(array(':nama' => $nama, ':jenis' => $jenis, ':harga' => $harga));
         if (!empty($result)) {
@@ -209,14 +209,14 @@ function ShowBread() {
     }
 
     function EditBread() {
-        $stmt = koneksi()->prepare("SELECT * FROM roti where id=" . $_GET["id"]);
+        $stmt = koneksi()->prepare("SELECT * FROM _roti where id=" . $_GET["id"]);
         $stmt->execute();
         $GLOBALS['result'] = $stmt->fetchAll();
     }
 
     function UpdateBread($id, $nama, $jenis, $harga) {
         $pdo_statement = koneksi()->prepare(
-            "update roti set nama='" . $nama . "', jenis='" . $jenis . "', harga='" . $harga . "' where id=" . $id);
+            "update _roti set nama='" . $nama . "', jenis='" . $jenis . "', harga='" . $harga . "' where id=" . $id);
         $result = $pdo_statement->execute();
         if (!empty($result)) {
             header('location: BreadPage.php');
@@ -224,6 +224,6 @@ function ShowBread() {
     }
 
     function DeleteBread($id) {
-        $stmt = koneksi()->prepare("delete from roti where id=" . $id);
+        $stmt = koneksi()->prepare("delete from _roti where id=" . $id);
         $result = $stmt->execute();
     }
