@@ -29,7 +29,7 @@ if (isset($_GET['id'])) {
                         </div>
 
                         <div class="col-md-12">
-                            <textarea class="form-control" name="address" placeholder="Address"<?php echo (isset($_GET['id_customer'])) ?  "value = " . $result[0]["address"] . "" : "value = '' "; ?>  required>
+                            <textarea class="form-control" name="address" placeholder="Address" required> <?php echo (isset($_GET['id_customer'])) ? $result[0]["address"] : ""; ?> </textarea> 
                             <div class="valid-feedback">Address is valid!</div>
                             <div class="invalid-feedback">Address cannot be blank!</div>
                         </div>
@@ -45,17 +45,17 @@ if (isset($_GET['id'])) {
                             if (isset($_GET['id_customer'])) {
                                 echo "<button type=\"submit\" name=\"update\" class=\"btn btn-success\">Update</button>";
                             }else {
-                                echo "<button type=\"submit\" name=\"submit\" class=\"btn btn-success\">Add Cake</button>";
+                                echo "<button type=\"submit\" name=\"submit\" class=\"btn btn-success\">Add</button>";
                             }
                         ?>
                         </div>
                     </form>
                     <?php
                         if (isset($_POST['submit'])) {
-                            AddCake($_POST['cake_name'], $_POST['cake_shape'], $_POST['cake_size'], $_POST['cake_date']);
+                            AddCustomer($_POST['cust_name'], $_POST['cust_number'], $_POST['address']);
                         }
                         if (isset($_POST['update'])) {
-                            UpdateCake($_GET['id'],$_POST['cake_name'], $_POST['cake_shape'], $_POST['cake_size'], $_POST['cake_date']);
+                            UpdateCustomer($_GET['id_customer'],$_POST['cust_name'], $_POST['cust_number'], $_POST['address']);
                         }
                     ?>
                 </div>
