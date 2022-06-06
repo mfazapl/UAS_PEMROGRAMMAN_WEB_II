@@ -180,3 +180,54 @@
         $stmt = koneksi()->prepare("delete from pelanggan where id_customer=" . $id_customer);
         $result = $stmt->execute();
     }
+
+    function ShowBread() {
+        $stmt = koneksi()->prepare("SELECT * FROM roti");
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+
+        if (!empty($result)) {
+            foreach ($result as $row) {
+                echo "<tr>";
+                echo "<td>" . $row['id_roti'] . "</td>";
+                echo "<td>" . $row['nama_roti'] . "</td>";
+                echo "<td>" . $row['jenis_roti'] . "</td>";
+                echo "<td>" . $row['harga'] . "</td>";
+                echo "<td>";
+                echo "<a class=\"btn btn-primary\" href='FormBread.php?id=" . $row['id_roti'] . "'>edit</a>";
+                echo " | ";
+                echo "<a class=\"btn btn-primary\" href='BreadPage.php?function=1&id=" . $row['id_roti'] . "' onclick=\"return confirm('Are You Sure to Delete?')\">Delete</a>";
+                echo "</td>";
+                echo "</tr>";
+            }
+        }
+    }
+
+    function AddBread($nama_roti, $jenis_roti, $harga) {
+        $sql = "INSERT INTO `roti` ( `nama_roti`, `jenis_roti`, `harga`) VALUES (:nama_roti,:jenis_roti,:harga)";
+        $stmt = koneksi()->prepare($sql);
+        $result = $stmt->execute(array(':nama_roti' => $nama_roti, ':jenis_roti' => $jenis_roti, ':harga' => $harga));
+        if (!empty($result)) {
+            header('location: BreadPage.php');
+        }
+    }
+
+    function EditBread() {
+        $stmt = koneksi()->prepare("SELECT * FROM roti where id_roti=" . $_GET["id_roti"]);
+        $stmt->execute();
+        $GLOBALS['result'] = $stmt->fetchAll();
+    }
+
+    function UpdateBread($id_roti, $nama_roti, $jenis_roti, $harga) {
+        $pdo_statement = koneksi()->prepare(
+            "update roti set nama_roti='" . $nama_roti . "', jenis_roti='" . $jenis_roti . "', harga='" . $harga . "' where id_roti=" . $id_roti);
+        $result = $pdo_statement->execute();
+        if (!empty($result)) {
+            header('location: BreadPage.php');
+        }
+    }
+
+    function DeleteBread($id_roti) {
+        $stmt = koneksi()->prepare("delete from roti where id_roti=" . $id_roti);
+        $result = $stmt->execute();
+    }

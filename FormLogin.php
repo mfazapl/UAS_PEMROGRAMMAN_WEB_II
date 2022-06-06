@@ -12,7 +12,7 @@ if (isset($_SESSION['user'])) {
         <title>
             Login
         </title>
-        <link rel="stylesheet" type="text/css" href="Style.css"
+        <link rel="stylesheet" type="text/css" href="assets/dist/css/style2.css">
     </head>
     <body>
         <center>

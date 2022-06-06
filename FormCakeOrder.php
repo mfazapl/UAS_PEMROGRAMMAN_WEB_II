@@ -64,13 +64,9 @@ if (isset($_GET['id_order'])) {
                     </div>
                         
                     <div class="col-md-12 mt-3">
-                        <label class="mb-3 mr-1" for="text">Status: </label>
-                            
-                        <input type="radio" class="btn-check" name="status" id="done" autocomplete="off" <?php echo (isset($_GET['id_order'])) ?  "value = " . $result[0]["order_status"] . "" : "value = '' "; ?> required>
-                        <label class="btn btn-sm btn-outline-secondary" for="done">Done</label>
-                            
-                        <input type="radio" class="btn-check" name="status" id="notdone" autocomplete="off" <?php echo (isset($_GET['id_order'])) ?  "value = " . $result[0]["order_status"] . "" : "value = '' "; ?> required>
-                        <label class="btn btn-sm btn-outline-secondary" for="notdone">Not Done</label>
+                        <input class="form-control" type="text" name="order_status" placeholder=" Order Status"<?php echo (isset($_GET['id_order'])) ?  "value = " . $result[0]["order_status"] . "" : "value = '' "; ?>  required>
+                        <div class="valid-feedback">Order Status is valid!</div>
+                        <div class="invalid-feedback">Order Status cannot be blank!</div>
                     </div>
                         
                     <div class="form-check">

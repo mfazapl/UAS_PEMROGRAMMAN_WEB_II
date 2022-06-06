@@ -4,7 +4,7 @@
       <a href="#">Back to top</a>
     </p>
     <p class="mb-1">This website is for </p>
-    <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
+    <!-- <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p> -->
   </div>
 </footer>
 

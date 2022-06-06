@@ -1,7 +1,7 @@
 <?php 
     require('Model.php');
-    if (isset($_GET['id'])) {
-        DeleteCake($_GET['id']);
+    if (isset($_GET['id_roti'])) {
+        DeleteCake($_GET['id_roti']);
     }
 ?>
 <link rel="stylesheet" href="assets/dist/css/style.css">
@@ -9,13 +9,14 @@
     <h1>Bread Table</h1>
     <table class="rwd-table">
             <tr>
+                <th >Bread ID </th>
                 <th >Bread Name </th>
                 <th >Bread Type </th>
                 <th >Price </th>
                 <th >Action</th>
             </tr>
             <?php
-                ShowBread("_roti")
+                ShowBread("roti")
             ?>
     </table>
 </div>
