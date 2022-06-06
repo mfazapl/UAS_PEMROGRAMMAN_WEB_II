@@ -177,3 +177,53 @@
         $stmt = koneksi()->prepare("delete from pelanggan where id_customer=" . $id_customer);
         $result = $stmt->execute();
     }
+
+function ShowBread() {
+        $stmt = koneksi()->prepare("SELECT * FROM roti");
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+
+        if (!empty($result)) {
+            foreach ($result as $row) {
+                echo "<tr>";
+                echo "<td>" . $row['nama'] . "</td>";
+                echo "<td>" . $row['jenis'] . "</td>";
+                echo "<td>" . $row['harga'] . "</td>";
+                echo "<td>";
+                echo "<a class=\"btn btn-primary\" href='FormBread.php?id=" . $row['id'] . "'>edit</a>";
+                echo " | ";
+                echo "<a class=\"btn btn-primary\" href='BreadPage.php?function=1&id=" . $row['id'] . "' onclick=\"return confirm('Are You Sure to Delete?')\">Delete</a>";
+                echo "</td>";
+                echo "</tr>";
+            }
+        }
+    }
+
+    function AddBread($nama, $jenis, $harga) {
+        $sql = "INSERT INTO `roti` ( `nama`, `jenis`, `harga`) VALUES (:nama,:jenis,:harga)";
+        $stmt = koneksi()->prepare($sql);
+        $result = $stmt->execute(array(':nama' => $nama, ':jenis' => $jenis, ':harga' => $harga));
+        if (!empty($result)) {
+            header('location: BreadPage.php');
+        }
+    }
+
+    function EditBread() {
+        $stmt = koneksi()->prepare("SELECT * FROM roti where id=" . $_GET["id"]);
+        $stmt->execute();
+        $GLOBALS['result'] = $stmt->fetchAll();
+    }
+
+    function UpdateBread($id, $nama, $jenis, $harga) {
+        $pdo_statement = koneksi()->prepare(
+            "update roti set nama='" . $nama . "', jenis='" . $jenis . "', harga='" . $harga . "' where id=" . $id);
+        $result = $pdo_statement->execute();
+        if (!empty($result)) {
+            header('location: BreadPage.php');
+        }
+    }
+
+    function DeleteBread($id) {
+        $stmt = koneksi()->prepare("delete from roti where id=" . $id);
+        $result = $stmt->execute();
+    }
