@@ -1,9 +1,9 @@
 <?php
 ob_start();
 require('components/header.inc.php'); 
-require('./model.php');
-if (isset($_GET['id_member'])) {
-    EditMember();
+require('Model.php');
+if (isset($_GET['id_order'])) {
+    EditCOrder();
 }
 ?>
 
@@ -23,21 +23,38 @@ if (isset($_GET['id_member'])) {
                     </div>
                         
                     <div class="col-md-12">
-                        <label>Insert your name!</label>
-                        <input class="form-control" type="text" name="nama" <?php echo (isset($_GET['id_order'])) ?  "value = " . $result[0]["name"] . "" : "value = '' "; ?> required>
-                        <div class="valid-feedback">Username field is valid!</div>
-                        <div class="invalid-feedback">Username field cannot be blank!</div>
+                        <label>Orderer name!</label>
+                        <select class="form-control" name="name" <?php echo (isset($_GET['id_order'])) ?  "value = " . $result[0]["name"] . "" : "value = '' "; ?> required>
+							<?php
+							$customer = koneksi()->query('SELECT * from pelanggan')->fetchAll();
+                            foreach ($customer as $cus)
+                            {
+							?>
+								<option value="<?php echo $cus['cust_name']; ?>"><?php echo $cus['cust_name'] ?></option>
+							<?php
+							}
+							?>
+						</select>
+                        <div class="valid-feedback">You selected a customer!</div>
+                        <div class="invalid-feedback">Please select a customer!</div>
                     </div>
                         
                     <div class="col-md-12">
-                        <label>Pick a cake!</label>
+                        <label>Pick an item!</label>
                         <select class="form-control" name="cake_name" <?php echo (isset($_GET['id_order'])) ?  "value = " . $result[0]["cake_name"] . "" : "value = '' "; ?>>
 							<?php
-							$brg = koneksi()->query('SELECT * from cake')->fetchAll();
-                            foreach ($brg as $b)
+							$cake = koneksi()->query('SELECT * from cake')->fetchAll();
+                            foreach ($cake as $c)
                             {
 							?>
-								<option value="<?php echo $b['cake_name']; ?>"><?php echo $b['cake_name'] ?></option>
+								<option value="<?php echo $c['cake_name']; ?>"><?php echo $c['cake_name'] ?></option>
+							<?php
+							}
+							$roti = koneksi()->query('SELECT * from roti')->fetchAll();
+                            foreach ($roti as $r)
+                            {
+							?>
+								<option value="<?php echo $r['nama_roti']; ?>"><?php echo $r['nama_roti'] ?></option>
 							<?php
 							}
 							?>
@@ -64,7 +81,7 @@ if (isset($_GET['id_member'])) {
                         
                     <div class="form-button mt-3">
                         <?php 
-                            if (isset($_GET['id'])) {
+                            if (isset($_GET['id_order'])) {
                                 echo "<button type=\"submit\" name=\"update\" class=\"btn btn-success\">Update Order</button>";
                             }else {
                                 echo "<button type=\"submit\" name=\"submit\" class=\"btn btn-success\">Add Order</button>";
@@ -77,7 +94,7 @@ if (isset($_GET['id_member'])) {
                             AddCOrder($_POST['order_date'], $_POST['nama'], $_POST['cake_name'], $_POST['status']);
                         }
                         if (isset($_POST['update'])) {
-                            UpdateCOrder($_GET['id'],$_POST['order_date'], $_POST['nama'], $_POST['cake_name'], $_POST['status']);
+                            UpdateCOrder($_GET['id_order'],$_POST['order_date'], $_POST['nama'], $_POST['cake_name'], $_POST['status']);
                         }
                     ?>
             </div>
