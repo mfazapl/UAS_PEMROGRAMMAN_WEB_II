@@ -106,10 +106,10 @@
                     <a class="nav-link" href="CakePage.php">Cake</a>
                 </li>
                 <li>
-                    <a class="nav-link" href="#">BreadPage.php</a>
+                    <a class="nav-link" href="BreadPage.php">Bread</a>
                 </li>
                 <li>
-                    <a class="nav-link" href="#">Tab 3</a>
+                    <a class="nav-link" href="Customer.php">Customer</a>
                 </li>
                 <li>
                     <a class="nav-link" href="Logout.php">Logout</a>
