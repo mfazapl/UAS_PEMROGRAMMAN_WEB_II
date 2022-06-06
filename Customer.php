@@ -3,7 +3,7 @@
     require('components/header.inc.php');
     require('Model.php');
     if (isset($_GET['id_customer'])) {
-        DeleteCake($_GET['id_customer']);
+        DeleteCustomer($_GET['id_customer']);
     }
 ?>
 <div class="album py-5 bg-light">
