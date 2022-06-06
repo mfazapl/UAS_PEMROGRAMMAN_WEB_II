@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2022 at 03:05 PM
+-- Generation Time: Jun 06, 2022 at 04:43 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -82,6 +82,20 @@ CREATE TABLE `member` (
 INSERT INTO `member` (`id_member`, `email`, `user`, `pass`) VALUES
 (1, 'blabla@gmail.com', 'admin', 'admin');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pelanggan`
+--
+
+CREATE TABLE `pelanggan` (
+  `id_customer` int(11) NOT NULL,
+  `cust_name` varchar(250) NOT NULL,
+  `cust_number` int(15) NOT NULL,
+  `address` text NOT NULL,
+  `regis` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
@@ -105,6 +119,12 @@ ALTER TABLE `member`
   ADD PRIMARY KEY (`id_member`);
 
 --
+-- Indexes for table `pelanggan`
+--
+ALTER TABLE `pelanggan`
+  ADD PRIMARY KEY (`id_customer`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -125,6 +145,12 @@ ALTER TABLE `cake_order`
 --
 ALTER TABLE `member`
   MODIFY `id_member` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `pelanggan`
+--
+ALTER TABLE `pelanggan`
+  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
