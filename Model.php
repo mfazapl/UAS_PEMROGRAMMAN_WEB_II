@@ -67,9 +67,9 @@
                 echo "<td>" . $row['cake_name'] . "</td>";
                 echo "<td>" . $row["order_status"] . "</td>";
                 echo "<td>";
-                echo "<a class=\"btn btn-primary\" href='FormCakeOrder.php?id=" . $row['id'] . "'>edit</a>";
+                echo "<a class=\"btn btn-primary\" href='FormCakeOrder.php?id=" . $row['id_order'] . "'>edit</a>";
                 echo " | ";
-                echo "<a class=\"btn btn-primary\" href='CakePage.php?function=1&id=" . $row['id'] . "' onclick=\"return confirm('Are You Sure to Delete?')\">Delete</a>";
+                echo "<a class=\"btn btn-primary\" href='CakePage.php?function=1&id=" . $row['id_order'] . "' onclick=\"return confirm('Are You Sure to Delete?')\">Delete</a>";
                 echo "</td>";
                 echo "</tr>";
             }
@@ -94,7 +94,7 @@
 
     function UpdateCOrder($id_order, $order_date, $name, $cake_name, $order_status) {
         $pdo_statement = koneksi()->prepare(
-            "update cake set order_date='" . $order_date . "', name='" . $name . "', cake_name='" . $cake_name . "', order_status='" . $order_status . "' where id_order=" . $id_order
+            "update cake_order set order_date='" . $order_date . "', name='" . $name . "', cake_name='" . $cake_name . "', order_status='" . $order_status . "' where id_order=" . $id_order
         );
         $result = $pdo_statement->execute();
         if (!empty($result)) {
@@ -103,7 +103,7 @@
     }
 
     function DeleteCOrder($id_order) {
-        $stmt = koneksi()->prepare("delete from cake where id_order=" . $id_order);
+        $stmt = koneksi()->prepare("delete from cake_order where id_order=" . $id_order);
         $result = $stmt->execute();
     }
 
@@ -124,4 +124,56 @@
             header('Location: FormLogin.php');
             exit();
         }
+    }
+
+    function ShowCustomer() {
+        $stmt = koneksi()->prepare("SELECT * FROM pelanggan");
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+
+        if (!empty($result)) {
+            foreach ($result as $row) {
+                echo "<tr>";
+                echo "<td>" . $row['cust_name'] . "</td>";
+                echo "<td>" . $row['cust_number'] . "</td>";
+                echo "<td>" . $row['address'] . "</td>";
+                echo "<td>" . $row["regis"] . "</td>";
+                echo "<td>";
+                echo "<a class=\"btn btn-primary\" href='FormPelanggan.php?id=" . $row['id_customer'] . "'>edit</a>";
+                echo " | ";
+                echo "<a class=\"btn btn-primary\" href='Page.php?function=1&id=" . $row['id_customer'] . "' onclick=\"return confirm('Are You Sure to Delete?')\">Delete</a>";
+                echo "</td>";
+                echo "</tr>";
+            }
+        }
+    }
+
+    
+    function AddCustomer($cust_name, $cust_number, $address) {
+        $sql = "INSERT INTO `pelanggan` ( `cust_name`, `cust_number`, `address`) VALUES (:cust_name,:cust_number,:address)";
+        $stmt = koneksi()->prepare($sql);
+        $result = $stmt->execute(array(':cust_name' => $cust_name, ':cust_number' => $cust_number, ':address' => $address));
+        if (!empty($result)) {
+            header('location: Page.php');
+        }
+    }
+
+    function EditCustomer() {
+        $stmt = koneksi()->prepare("SELECT * FROM pelanggan where id_customer=" . $_GET["id_customer"]);
+        $stmt->execute();
+        $GLOBALS['result'] = $stmt->fetchAll();
+    }
+
+    function UpdateCustomer($id_customer, $cust_name, $cust_number, $address) {
+        $pdo_statement = koneksi()->prepare(
+            "update pelanggan set cust_name='" . $cust_name . "', cust_number='" . $cust_number . "', address='" . $address . "' where id_customer=" . $id_customer);
+        $result = $pdo_statement->execute();
+        if (!empty($result)) {
+            header('location: Page.php');
+        }
+    }
+
+    function DeleteCustomer($id_customer) {
+        $stmt = koneksi()->prepare("delete from pelanggan where id_customer=" . $id_customer);
+        $result = $stmt->execute();
     }
