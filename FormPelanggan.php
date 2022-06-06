@@ -2,8 +2,8 @@
 ob_start();
 require('components/header.inc.php');
 require('Model.php');
-if (isset($_GET['id'])) {
-    EditCake();
+if (isset($_GET['id_customer'])) {
+    EditCustomer();
 }
 ?>
 
