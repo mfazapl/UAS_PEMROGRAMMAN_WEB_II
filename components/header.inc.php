@@ -109,6 +109,9 @@
                     <a class="nav-link" href="#">Tab 2</a>
                 </li>
                 <li>
+                    <a class="nav-link" href="#">Tab 3</a>
+                </li>
+                <li>
                     <a class="nav-link" href="Logout.php">Logout</a>
                 </li>
                 <li class="nav-item dropdown">
