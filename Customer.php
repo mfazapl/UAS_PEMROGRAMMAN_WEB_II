@@ -11,7 +11,7 @@
         <div class="col-lg-6 col-md-8 mx-auto">
             <h1>Customer Data</h1>
             <p>
-                <a href="FormCustomer.php" class="btn btn-primary my-2">Add Customer Data</a>
+                <a href="FormPelanggan.php" class="btn btn-primary my-2">Add Customer Data</a>
             </p>
         </div>
     </section>
