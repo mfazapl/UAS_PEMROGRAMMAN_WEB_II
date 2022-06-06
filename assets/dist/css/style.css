@@ -39,7 +39,7 @@ html, body {
 }
 
 .form-content .form-items {
-    background-color: #152733;
+    background-color: #FFA780;
     border: 3px solid #fff;
     padding: 40px;
     display: inline-block;
@@ -173,7 +173,7 @@ th, td, tr{
 
 .rwd-table tr:first-child {
   border-top: none;
-  background: #a77b02;
+  background: #FFA780;
   color: #fff;
 }
 

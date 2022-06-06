@@ -4,9 +4,8 @@
         DeleteCOrder($_GET['id_order']);
     }
 ?>
-<link rel="stylesheet" href="assets/dist/css/style.css">
 <div class="col-md-12">
-    <h1>Cakes table</h1>
+    <h1>Cakes Order</h1>
     <table class="rwd-table">
             <tr>
                 <th >Cake Name </th>

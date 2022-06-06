@@ -28,6 +28,9 @@
         $sql = "INSERT INTO `cake` ( `cake_name`, `cake_shape`, `cake_size`, `cake_date`) VALUES (:nama,:cake_shape,:cake_size,:cake_date)";
         $stmt = koneksi()->prepare($sql);
         $result = $stmt->execute(array(':nama' => $cake_name, ':cake_shape' => $cake_shape, ':cake_size' => $cake_size, ':cake_date' => $cake_date));
+        if (!empty($result)) {
+            header('location: CakePage.php');
+        }
     }
 
     function EditCake() {
@@ -38,9 +41,11 @@
 
     function UpdateCake($id, $cake_name, $cake_shape, $cake_size, $cake_date) {
         $pdo_statement = koneksi()->prepare(
-            "update cake set cake_name='" . $cake_name . "', cake_shape='" . $cake_shape . "', cake_size='" . $cake_size . "', cake_date='" . $cake_date . "' where id=" . $id
-        );
+            "update cake set cake_name='" . $cake_name . "', cake_shape='" . $cake_shape . "', cake_size='" . $cake_size . "', cake_date='" . $cake_date . "' where id=" . $id);
         $result = $pdo_statement->execute();
+        if (!empty($result)) {
+            header('location: CakePage.php');
+        }
     }
 
     function DeleteCake($id) {
@@ -76,6 +81,9 @@
         $sql = "INSERT INTO `cake_order` ( `order_date`, `name`, `cake_name`, `order_status`) VALUES (:order_date,:name,:cake_name,:order_status)";
         $stmt = koneksi()->prepare($sql);
         $result = $stmt->execute(array(':order_date' => $order_date, ':name' => $name, ':cake_name' => $cake_name, ':order_status' => $order_status));
+        if (!empty($result)) {
+            header('location: CakePage.php');
+        }
     }
 
     function EditCOrder() {
@@ -89,6 +97,9 @@
             "update cake set order_date='" . $order_date . "', name='" . $name . "', cake_name='" . $cake_name . "', order_status='" . $order_status . "' where id_order=" . $id_order
         );
         $result = $pdo_statement->execute();
+        if (!empty($result)) {
+            header('location: CakePage.php');
+        }
     }
 
     function DeleteCOrder($id_order) {
@@ -96,7 +107,7 @@
         $result = $stmt->execute();
     }
 
-function GetAllDataMember($pdo) {
+    function GetAllDataMember($pdo) {
         $con ="SELECT * FROM member";
         $stmt = $pdo->prepare($con);
         $stmt->execute();
@@ -105,10 +116,12 @@ function GetAllDataMember($pdo) {
         return $members;
     }
 
-    function AddMember($pdo_con, $email, $nama, $pass) {
-        $sql = "INSERT INTO member (email, nama, pass) VALUES (?,?,?)";
-        $stmt= $pdo_con->prepare($sql);
-        $stmt->execute([$email , $nama, $pass ]);
-        header('Location: member.php');
-        exit();
+    function AddMember($email, $user, $pass) {
+        $sql = "INSERT INTO `member` (`email`, `user`, `pass`) VALUES (:email,:user,:pass)";
+        $stmt= Koneksi()->prepare($sql);
+        $result = $stmt->execute([':email' => $email, ':user' => $user, ':pass' => $pass]);
+        if (!empty($result)) {
+            header('Location: FormLogin.php');
+            exit();
+        }
     }

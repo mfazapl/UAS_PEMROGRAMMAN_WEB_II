@@ -1,13 +1,11 @@
 <?php 
+ob_start();
+require('components/header.inc.php');
 require('Model.php');
 if (isset($_GET['id'])) {
     EditCake();
 }
 ?>
-
-<?php require('components/header.inc.php'); ?>
-
-<link rel="stylesheet" href="assets/dist/css/style.css">
 
 <div class="album py-5 bg-light">
     <div class="container">
@@ -65,7 +63,6 @@ if (isset($_GET['id'])) {
                                 echo "<button type=\"submit\" name=\"submit\" class=\"btn btn-success\">Add Cake</button>";
                             }
                         ?>
-                            <a href="CakePage.php" class="btn btn-primary text-right">Back</a>
                         </div>
                     </form>
                     <?php
@@ -84,4 +81,4 @@ if (isset($_GET['id'])) {
 
 <script  src="assets/dist/js/form.js"></script>
         
-<?php require('components/footer.inc.php'); ?>
+<?php require('components/footer.inc.php')?>

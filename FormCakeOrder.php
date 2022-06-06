@@ -1,12 +1,11 @@
-<!-- <?php require('./model.php');
+<?php
+ob_start();
+require('components/header.inc.php'); 
+require('./model.php');
 if (isset($_GET['id_member'])) {
     EditMember();
 }
-?> -->
-
-<?php require('components/header.inc.php'); ?>
-
-<link rel="stylesheet" href="assets/dist/css/style.css">
+?>
 
 <div class="container">
     <div class="row">
@@ -88,4 +87,4 @@ if (isset($_GET['id_member'])) {
 
 <script  src="assets/dist/js/form.js"></script>
 
-<?php require('components/footer.inc.php'); ?>
+<?php require('components/footer.inc.php');?>

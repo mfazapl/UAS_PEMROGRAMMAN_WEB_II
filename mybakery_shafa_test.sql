@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2022 at 08:22 AM
+-- Generation Time: Jun 06, 2022 at 03:05 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -43,7 +43,10 @@ INSERT INTO `cake` (`id`, `cake_name`, `cake_shape`, `cake_size`, `cake_date`) V
 (4, 'red velvet', 'Rectangle', 'Medium', '2022-06-02'),
 (5, 'blue', 'Rectangle', 'Medium', '2022-06-02'),
 (6, 'red spider', 'Rectangle', 'Small', '2022-06-02'),
-(7, 'Lava Choco', 'Rectangle', 'Medium', '2022-06-16');
+(7, 'Lava Choco', 'Rectangle', 'Medium', '2022-06-16'),
+(8, 'Flag cake', 'Rectangle', 'Medium', '2022-06-06'),
+(9, 'choco brownies', 'Square', 'Medium', '2022-06-06'),
+(10, 'choco', 'Rectangle', 'Small', '2022-06-06');
 
 -- --------------------------------------------------------
 
@@ -58,6 +61,26 @@ CREATE TABLE `cake_order` (
   `cake_name` varchar(250) NOT NULL,
   `order_status` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member`
+--
+
+CREATE TABLE `member` (
+  `id_member` int(11) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `user` varchar(250) NOT NULL,
+  `pass` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `member`
+--
+
+INSERT INTO `member` (`id_member`, `email`, `user`, `pass`) VALUES
+(1, 'blabla@gmail.com', 'admin', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -76,6 +99,12 @@ ALTER TABLE `cake_order`
   ADD PRIMARY KEY (`id_order`);
 
 --
+-- Indexes for table `member`
+--
+ALTER TABLE `member`
+  ADD PRIMARY KEY (`id_member`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -83,13 +112,19 @@ ALTER TABLE `cake_order`
 -- AUTO_INCREMENT for table `cake`
 --
 ALTER TABLE `cake`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `cake_order`
 --
 ALTER TABLE `cake_order`
   MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `member`
+--
+ALTER TABLE `member`
+  MODIFY `id_member` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
