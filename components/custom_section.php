@@ -5,7 +5,6 @@
         <p class="lead text-muted">How to make a custom order bla bla bla</p>
         <p>
           <a href="FormCake.php" class="btn btn-primary my-2">Add a cake</a>
-          <a href="FormCakeOrder.php" class="btn btn-secondary my-2">Order a Cake</a>
         </p>
       </div>
     </div>
