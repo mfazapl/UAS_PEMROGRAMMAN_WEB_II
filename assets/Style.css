@@ -1,0 +1,66 @@
+body{
+    margin-top: 0;
+    padding : 0;
+    background-color: #FFA780;
+    background-position: center;
+    background-size: 1450px;
+    font-family: 'Times New Roman', Times, serif ;
+    background-repeat: no-repeat;
+
+}
+
+table{
+    background: white;
+    
+}
+
+.container{
+    width: 320px;
+    height: 420px;
+    background: rgb(13, 179, 190);
+    color: ivory;
+    top: 56%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 10% ;
+    border-inline-color: black;
+}
+
+button{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.Logo{
+    position: absolute ;
+    top: -17%;
+    left: calc(50% - 40px);
+}
+
+.container p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    margin-top: 17px;
+    
+}
+
+.container input{
+    width: 150px;
+    margin-bottom: 20px;
+    height: 20px;
+    padding: 1px;
+    border-radius: 9px;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.container [type="submit"]{
+    width: 130px;
+    height: 27px;
+    
+}
+
+
