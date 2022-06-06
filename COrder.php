@@ -8,10 +8,10 @@
     <h1>Cakes Order</h1>
     <table class="rwd-table">
             <tr>
-                <th >Cake Name </th>
-                <th >Shape </th>
-                <th >Size </th>
-                <th >Update Date </th>
+                <th >Order Date </th>
+                <th >Name </th>
+                <th >Order </th>
+                <th >Status </th>
                 <th >Action</th>
             </tr>
             <?php
