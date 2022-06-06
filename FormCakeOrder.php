@@ -23,14 +23,14 @@ if (isset($_GET['id_order'])) {
                     </div>
                         
                     <div class="col-md-12">
-                        <label>Orderer name!</label>
-                        <select class="form-control" name="name" <?php echo (isset($_GET['id_order'])) ?  "value = " . $result[0]["name"] . "" : "value = '' "; ?> required>
+                        <label>Orderer ID!</label>
+                        <select class="form-control" name="id_customer" <?php echo (isset($_GET['id_order'])) ?  "value = " . $result[0]["id_customer"] . "" : "value = '' "; ?> required>
 							<?php
 							$customer = koneksi()->query('SELECT * from pelanggan')->fetchAll();
                             foreach ($customer as $cus)
                             {
 							?>
-								<option value="<?php echo $cus['cust_name']; ?>"><?php echo $cus['cust_name'] ?></option>
+								<option value="<?php echo $cus['id_customer']; ?>"><?php echo $cus['id_customer'] ?></option>
 							<?php
 							}
 							?>

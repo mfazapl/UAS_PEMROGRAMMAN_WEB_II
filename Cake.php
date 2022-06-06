@@ -8,6 +8,7 @@
     <h1>Cakes table</h1>
     <table class="rwd-table">
             <tr>
+                <th >Cake ID </th>
                 <th >Cake Name </th>
                 <th >Shape </th>
                 <th >Size </th>

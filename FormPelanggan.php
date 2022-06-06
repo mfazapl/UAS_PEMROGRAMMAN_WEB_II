@@ -2,11 +2,10 @@
 ob_start();
 require('components/header.inc.php');
 require('Model.php');
-if (isset($_GET['id_customer'])) {
-    EditCustomer();
+if (isset($_GET['id'])) {
+    EditCake();
 }
 ?>
-
 <div class="album py-5 bg-light">
     <div class="container">
         <div class="row">

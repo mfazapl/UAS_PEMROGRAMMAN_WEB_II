@@ -8,9 +8,10 @@
     <h1>Cakes Order</h1>
     <table class="rwd-table">
             <tr>
-                <th >Order Date </th>
+                <th >Order ID </th>
+                <th >Date </th>
                 <th >Name </th>
-                <th >Order </th>
+                <th >Item </th>
                 <th >Status </th>
                 <th >Action</th>
             </tr>

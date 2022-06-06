@@ -23,23 +23,15 @@ if (isset($_GET['id'])) {
                         </div>
                         
                         <div class="col-md-12">
-                            <select class="form-select mt-3" name="cake_shape" <?php echo (isset($_GET['id'])) ?  "value = " . $result[0]["cake_shape"] . "" : "value = '' "; ?> required>
-                                <option value="Rectangle">Rectangle</option>
-                                <option value="Circle">Circle</option>
-                                <option value="Square">Square</option>
-                            </select>
-                            <div class="valid-feedback">You selected a shape!</div>
-                            <div class="invalid-feedback">Please select an shape!</div>
+                            <input class="form-control" type="text" name="cake_shape" placeholder="Cake Shape"<?php echo (isset($_GET['id'])) ?  "value = " . $result[0]["cake_shape"] . "" : "value = '' "; ?>  required>
+                            <div class="valid-feedback">shape is valid!</div>
+                            <div class="invalid-feedback">shape cannot be blank!</div>
                         </div>
                         
                         <div class="col-md-12">
-                            <select class="form-select mt-3" name="cake_size" <?php echo (isset($_GET['id'])) ?  "value = " . $result[0]["cake_size"] . "" : "value = '' "; ?> required>
-                                <option value="Small">Small</option>
-                                <option value="Medium">Medium</option>
-                                <option value="Large">Large</option>
-                            </select>
-                            <div class="valid-feedback">You selected a size!</div>
-                            <div class="invalid-feedback">Please select a size!</div>
+                            <input class="form-control" type="text" name="cake_size" placeholder="Cake Size"<?php echo (isset($_GET['id'])) ?  "value = " . $result[0]["cake_size"] . "" : "value = '' "; ?>  required>
+                            <div class="valid-feedback">size is valid!</div>
+                            <div class="invalid-feedback">size cannot be blank!</div>
                         </div>
 
                         <div class="col-md-12">

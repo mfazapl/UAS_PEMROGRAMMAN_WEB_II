@@ -3,7 +3,7 @@
     require('components/header.inc.php');
     require('Model.php');
     if (isset($_GET['id_customer'])) {
-        DeleteCustomer($_GET['id_customer']);
+        DeleteCake($_GET['id_customer']);
     }
 ?>
 <div class="album py-5 bg-light">
@@ -18,11 +18,12 @@
     <div class="col-md-12">
         <table class="rwd-table">
                 <tr>
+                    <th >Customer ID </th>
                     <th >Customer Name </th>
                     <th >Number </th>
                     <th >Address </th>
                     <th >Registered Date </th>
-                    <th >Action</th>
+                    <th >Action </th>
                 </tr>
                 <?php
                     ShowCustomer("pelanggan")
